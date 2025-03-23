@@ -1,0 +1,98 @@
+.sidebar {
+    min-height: 100vh;
+    background-color: #f0f4f9;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 20px 10px;
+    width: 60px;
+    transition: width 0.3s ease, opacity 0.3s ease-in-out;
+    align-items: center;
+    position: relative;
+}
+
+/* Expanded Sidebar */
+.sidebar.expanded {
+    width: 220px;
+    align-items: flex-start;
+    padding-left: 20px;
+}
+
+/* Menu Icon (No Movement) */
+.menu-icon {
+    font-size: 22px;
+    cursor: pointer;
+    text-align: center;
+}
+
+/* Recent Chats */
+.sidebar .recent {
+    display: flex;
+    flex-direction: column;
+    animation: fadeIn 0.5s ease-in-out;
+    opacity: 0;
+    transform: translateY(15px); /* Moved down by 15px */
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Show Recent Chats when expanded */
+.sidebar.expanded .recent {
+    opacity: 1;
+}
+
+/* Empty Recent Chats Text */
+.empty-text {
+    color: grey;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Chat List */
+.sidebar .recent-entry {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    padding-right: 40px;
+    border-radius: 40px;
+    color: #282828;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Active Chat Highlight */
+.sidebar .recent-entry.active {
+    background-color: #dfe4ea;
+    font-weight: bold;
+}
+
+/* Hover Effect */
+.sidebar .recent-entry:hover {
+    background-color: #e2e6eb;
+}
+
+/* Bottom Section */
+.sidebar .bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Space between options */
+    transition: opacity 0.3s ease;
+}
+
+/* Bottom Items */
+.sidebar .bottom-item {
+    padding-right: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px; /* Added padding for better spacing */
+}
+
+/* Hide Sidebar on Small Screens */
+@media (max-width: 600px) {
+    .sidebar {
+        display: none;
+    }    
+}
